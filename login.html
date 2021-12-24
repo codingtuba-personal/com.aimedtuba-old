@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>gb4i3c568764-2b7yv39vn8uv95-7ybv8cw7989cb6t20tvc35-tv6358-cmy8tncyb</title>
+	<meta name="robots" content="noindex, nofollow">
+	<link rel="icon" type="image/png" href="https://aimedtubaimages.cadd27.repl.co/logo.png">
+	<style type="text/css">html{
+            background-color:rgb(0, 150, 255);
+            width:100%;
+        }
+        .center-screen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(0, 100, 255);
+            border: 2.5px black solid;
+            max-width:500px;
+            width:95%;
+            height: 350px;
+            overflow-x: auto;
+        }
+        #text{
+            color:white;
+            margin-top:50px;
+            margin-left:20px;
+            font-size: 35px;
+            font-family: 'Poppins', sans-serif;
+        }
+        #hostname{
+            color:white;
+            font-size: 35px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .height35{
+            height:35px;
+            font-size: 32px;
+            outline: none;
+            border:2.5px solid black;
+            background-color:transparent;
+            background-color:rgb(0, 150, 255);
+            color: rgb(0, 100, 255);
+        }
+        .height40{
+            height:40px;
+            outline: none;
+            border:2.5px solid black;
+            background-color:transparent;
+            color: rgb(0, 100, 255);
+            background-color:rgb(0, 150, 255);
+        }
+        .height35::placeholder{
+            color:rgb(0,100,255)
+        }
+	</style>
+</head>
+<body>
+<div class="center-screen">
+<h2 id="text">log into <a id="hostname">gb4i3c568764-2b7yv39vn8uv95-7ybv8cw7989cb6t20tvc35-tv6358-cmy8tncyb</a>:<br>
+<br>
+<input class="height35" id="code" placeholder="code" type="text"><br>
+<button class="height40" id="subit_code">login</button></h2>
+</div>
+<script>
+        let ip=null
+        let tried=false
+        document.getElementById('hostname').innerHTML=location.hostname
+        document.title="location.hostname"
+        const params = location.search.slice(1).split('&').reduce((acc, s) => {
+            const [k, v] = s.split('=')
+            return Object.assign(acc, {[k]: v})
+        }, {})
+        function getIP(json) {
+            ip=json.ip
+        }
+        ip="109.192.78.109"
+        setInterval(function(){
+            if(ip!=null&&tried==false){
+                tried=true
+                if(getCookie('passcode')&&(!params.code)){
+                    var xhr = new window.XMLHttpRequest()
+                    xhr.open('POST', '/login'+location.pathname, true)
+                    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+                    xhr.send(JSON.stringify({ip:ip,code:getCookie('passcode'),path:location.pathname.replaceAll("/",'⁄')}))
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200 || this.status == 302) {
+                            let info=(IsJsonString(this.responseText))?(JSON.parse(this.responseText)):(this.responseText)
+                            if(Array.isArray(info)){
+                                if(info[1].includes('2')){setCookie('passcode','',0)}
+                                let execute=info[1].split('<script>')
+                                document.getElementById('text').innerHTML=(execute[0])
+                                eval(execute[1])
+                            }else{
+                                document.write(info)
+                            }
+                        }
+                    };
+                }
+                if(params.code){
+                    var xhr = new window.XMLHttpRequest()
+                    xhr.open('POST', '/login'+location.pathname, true)
+                    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+                    xhr.send(JSON.stringify({ip:ip,code:params.code,path:location.pathname.replaceAll("/",'⁄')}))
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200 || this.status == 302) {
+                            let info=(IsJsonString(this.responseText))?(JSON.parse(this.responseText)):(this.responseText)
+                            if(Array.isArray(info)){
+                                let execute=info[1].split('<script>')
+                                document.getElementById('text').innerHTML=(execute[0])
+                                eval(execute[1])
+                            }else{
+                                setCookie('passcode',params.code,690000)
+                                document.write(info)
+                            }
+                        }
+                    };
+                }
+            }
+        },100)
+        document.getElementById('subit_code').onclick=function() {try_login()}
+        function try_login(){
+            var xhr = new window.XMLHttpRequest()
+            xhr.open('POST', '/login'+location.pathname, true)
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
+            xhr.send(JSON.stringify({ip:ip,code:document.getElementById('code').value,path:location.pathname.replaceAll("/",'⁄')}))
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200 || this.status == 302) {
+                    let info=(IsJsonString(this.responseText))?(JSON.parse(this.responseText)):(this.responseText)
+                    if(Array.isArray(info)){
+                        if(info[1].includes('2')){setCookie('passcode','',0)}
+                        let execute=info[1].split('<script>')
+                        document.getElementById('text').innerHTML=(execute[0])
+                        eval(execute[1])
+                    }else{
+                        setCookie('passcode',document.getElementById('code').value,690000)
+                        document.write(info)
+                    }
+                }
+            };
+        }
+        function IsJsonString(str) {
+            try {
+                JSON.parse(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }
+        function getJSONfromHREF(){
+
+        }
+        function setCookie(cname,cvalue,exdays) {  var d = new Date();  d.setTime(d.getTime() + (exdays*24*60*60*1000));  var expires = 'expires=' + d.toGMTString();  document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';}function getCookie(cname) {  var name = cname + '=';  var decodedCookie = decodeURIComponent(document.cookie);  var ca = decodedCookie.split(';');  for(var i = 0; i < ca.length; i++) {    var c = ca[i];    while (c.charAt(0) == ' ') {      c = c.substring(1);    }    if (c.indexOf(name) == 0) {      return c.substring(name.length, c.length);    }  }  return '';}
+    </script><script src="https://api.ipify.org?format=jsonp&amp;callback=getIP"></script>
+</body></html>
